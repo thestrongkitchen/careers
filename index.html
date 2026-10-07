@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lead Prep Cook - The Strong Kitchen</title>
+<meta name="description" content="The Strong Kitchen is hiring a Lead Prep Cook in Hamden, CT. $25/hr, Wednesday to Saturday, no nights. No kitchen experience required.">
+<meta property="og:title" content="Now hiring: Lead Prep Cook - The Strong Kitchen">
+<meta property="og:description" content="$25/hr in Hamden, CT. Wednesday to Saturday, four 8-hour days, no nights. 90-day training.">
+<meta property="og:image" content="hero.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #73933c; --green-d: #5f7b2f; --dark: #2e3a18; --gold: #d9b46f;
+    --bg: #f6f5ef; --card: #ffffff; --ink: #1d2412; --muted: #5c6352; --line: #e0e0da; --bad: #a33b2b;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body { background: var(--bg); color: var(--ink); font: 16px/1.55 "Plus Jakarta Sans", "Helvetica Neue", Arial, sans-serif; }
+  .hero {
+    position: relative; color: #fff; text-align: center; padding: 28px 16px 40px;
+    background: linear-gradient(180deg, rgba(46,58,24,.55), rgba(46,58,24,.92)), url(hero.jpg) center 35%/cover;
+  }
+  .hero img.logo { width: 180px; max-width: 55%; }
+  .pill { display: inline-block; margin-top: 26px; background: var(--green); color: #fff; font-weight: 800;
+          letter-spacing: .12em; font-size: 13px; padding: 6px 16px; border-radius: 99px; }
+  .hero h1 { font-size: clamp(34px, 9vw, 54px); line-height: 1.05; margin: 14px 0 10px; font-weight: 800; letter-spacing: -.01em; }
+  .hero .pay { color: var(--gold); font-weight: 700; font-size: 16px; margin-bottom: 8px; }
+  .hero-btn { max-width: 260px; margin: 22px auto 0; }
+  .hero p { margin: 0 auto; max-width: 520px; color: #e6eadc; font-size: 17px; }
+  main { max-width: 640px; margin: -20px auto 0; padding: 0 16px 60px; position: relative; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 22px 20px; margin-bottom: 16px; }
+  h2 { font-size: 21px; margin: 0 0 6px; color: var(--dark); }
+  .sub { color: var(--muted); margin: 0 0 18px; font-size: 15px; }
+  .facts { display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; margin: 0; font-size: 15px; }
+  .facts dt { font-weight: 700; color: var(--dark); }
+  .facts dd { margin: 0; }
+  ul.req { padding-left: 20px; margin: 8px 0 0; }
+  ul.req li { margin: 4px 0; }
+  .btn { display: block; width: 100%; border: 0; border-radius: 99px; background: var(--green); color: #fff;
+         font-family: inherit; font-weight: 700; font-size: 17px; line-height: 1; padding: 17px; cursor: pointer; margin-top: 8px; }
+  .btn:hover { background: var(--green-d); }
+  .btn.ghost { background: transparent; color: var(--dark); border: 1.5px solid var(--line); }
+  .btn:disabled { opacity: .6; cursor: wait; }
+  .row { display: flex; gap: 10px; }
+  .row > * { flex: 1; }
+  .q { margin: 0 0 18px; }
+  .q > label, .q > .lbl { display: block; font-weight: 600; margin-bottom: 6px; }
+  .hint { color: var(--muted); font-size: 14px; margin: -2px 0 8px; }
+  input[type=text], input[type=email], input[type=tel], input[type=month], select, textarea {
+    width: 100%; font: inherit; color: inherit; background: #fff; border: 1.5px solid var(--line);
+    border-radius: 10px; padding: 12px; }
+  textarea { min-height: 96px; resize: vertical; }
+  input:focus, select:focus, textarea:focus { outline: none; border-color: var(--green); }
+  .yn { display: flex; gap: 10px; }
+  .yn label { flex: 1; text-align: center; border: 1.5px solid var(--line); border-radius: 10px; padding: 12px; cursor: pointer; font-weight: 600; }
+  .yn input { position: absolute; opacity: 0; pointer-events: none; }
+  .yn label:has(input:checked) { border-color: var(--green); background: #eef3e4; color: var(--dark); }
+  .job { border: 1px solid var(--line); border-radius: 12px; padding: 14px; margin-bottom: 12px; }
+  .job h3 { margin: 0 0 10px; font-size: 15px; color: var(--dark); }
+  .job .q { margin-bottom: 10px; }
+  .check { display: flex; align-items: center; gap: 8px; font-size: 14px; margin-top: 6px; font-weight: 500; }
+  .progress { height: 6px; background: var(--line); border-radius: 99px; overflow: hidden; margin-bottom: 16px; }
+  .progress i { display: block; height: 100%; background: var(--green); width: 0; transition: width .3s; }
+  .step-n { font-size: 13px; color: var(--muted); font-weight: 600; letter-spacing: .04em; text-transform: uppercase; margin-bottom: 4px; }
+  .err { color: var(--bad); font-size: 14px; margin-top: 6px; display: none; }
+  .invalid { border-color: var(--bad) !important; }
+  .hide { display: none !important; }
+  .end { text-align: center; padding: 34px 22px; }
+  .end h2 { font-size: 24px; }
+  .hp { position: absolute; left: -9999px; }
+  footer { text-align: center; color: var(--muted); font-size: 13px; padding: 10px 16px 40px; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <img class="logo" src="logo.png" alt="The Strong Kitchen">
+  <div><span class="pill">NOW HIRING</span></div>
+  <h1>Lead Prep Cook</h1>
+  <p class="pay">$25/hr &nbsp;&middot;&nbsp; Wed&ndash;Sat, four 8-hour days &nbsp;&middot;&nbsp; No nights</p>
+  <p>No kitchen experience required. Leadership qualities a must.</p>
+  <button class="btn hero-btn" type="button" data-go="1">Apply now</button>
+</header>
+
+<main>
+
+  <!-- ===== Intro ===== -->
+  <section id="s-intro">
+    <div class="card">
+      <h2>The job</h2>
+      <p class="sub">You own the hands-on side of our weekly production: receiving, prep and cooking, working from the prep lists and menu set by the Kitchen Manager. Each day you balance that day's tasks with getting ready for what needs to happen tomorrow.</p>
+      <dl class="facts">
+        <dt>Pay</dt><dd>$25/hr</dd>
+        <dt>Schedule</dt><dd>Wednesday, Thursday, Friday, Saturday. Four 8-hour days, no nights.</dd>
+        <dt>Where</dt><dd>109 Sanford St, Building 2, Hamden CT</dd>
+        <dt>Training</dt><dd>90-day structured training</dd>
+      </dl>
+    </div>
+    <div class="card">
+      <h2>Who we're looking for</h2>
+      <p class="sub">Someone who wants to be part of the kitchen team, not someone who puts their head down, gets through the list and leaves.</p>
+      <ul class="req">
+        <li><b>Independent.</b> You can take the prep list and run it on your own, while checking in and working with the team.</li>
+        <li><b>Good judgment.</b> You make sound calls in the moment instead of following steps into a problem.</li>
+        <li><b>Speaks up.</b> When something's unclear, you ask instead of guessing.</li>
+        <li><b>A real team player</b> who communicates well and enjoys the people around them.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2>A week in the kitchen</h2>
+      <dl class="facts">
+        <dt>Wed</dt><dd>Receive the week's order. Trim and marinate proteins, prep sauces and spice mixes, cut vegetables.</dd>
+        <dt>Thu</dt><dd>Start the cook cycle: pasta, ground proteins, rices, sauces, and cooling cooked food safely.</dd>
+        <dt>Fri</dt><dd>Potatoes, pasta mixes, pack rices, portion dressings and sides.</dd>
+        <dt>Sat</dt><dd>Finish the cook items, assemble burritos, close out the week.</dd>
+      </dl>
+    </div>
+    <div class="card">
+      <h2>What you need</h2>
+      <p class="sub">The application checks these first. If one doesn't fit, it ends there and saves you the time.</p>
+      <ul class="req">
+        <li>18 or older and authorized to work in the US</li>
+        <li>Reliable transportation to Hamden</li>
+        <li>Available all four days, Wednesday through Saturday, every week</li>
+        <li>A work history with at least two jobs you held for a year or longer</li>
+        <li>A resume to upload (PDF, Word, or a photo of it)</li>
+      </ul>
+      <button class="btn" type="button" data-go="1">Start my application</button>
+      <p class="hint" style="text-align:center;margin-top:10px">About 10 minutes. No account or sign-in needed.</p>
+    </div>
+  </section>
+
+  <form id="app" class="hide" novalidate>
+    <div class="progress"><i id="bar"></i></div>
+    <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+    <!-- ===== Step 1: quick check ===== -->
+    <section class="card step" data-step="1">
+      <div class="step-n">Step 1 of 5</div>
+      <h2>Quick check</h2>
+      <p class="sub">Five yes-or-no questions. Be honest. We verify all of this before we hire.</p>
+      <div class="q"><span class="lbl">Are you 18 or older?</span>
+        <div class="yn"><label><input type="radio" name="g_age" value="yes">Yes</label><label><input type="radio" name="g_age" value="no">No</label></div></div>
+      <div class="q"><span class="lbl">Are you legally authorized to work in the United States?</span>
+        <div class="yn"><label><input type="radio" name="g_auth" value="yes">Yes</label><label><input type="radio" name="g_auth" value="no">No</label></div></div>
+      <div class="q"><span class="lbl">Do you have reliable transportation to 109 Sanford St in Hamden?</span>
+        <div class="yn"><label><input type="radio" name="g_transport" value="yes">Yes</label><label><input type="radio" name="g_transport" value="no">No</label></div></div>
+      <div class="q"><span class="lbl">Can you work Wednesday, Thursday, Friday and Saturday, every week?</span>
+        <div class="yn"><label><input type="radio" name="g_days" value="yes">Yes</label><label><input type="radio" name="g_days" value="no">No</label></div></div>
+      <div class="q"><span class="lbl">Have you held at least two jobs for a year or longer each?</span>
+        <p class="hint">Any kind of work counts: retail, warehouse, landscaping, a family business.</p>
+        <div class="yn"><label><input type="radio" name="g_history" value="yes">Yes</label><label><input type="radio" name="g_history" value="no">No</label></div></div>
+      <div class="err" id="err-1">Please answer all five.</div>
+      <button class="btn" type="button" data-next>Continue</button>
+    </section>
+
+    <!-- ===== Step 2: about you ===== -->
+    <section class="card step hide" data-step="2">
+      <div class="step-n">Step 2 of 5</div>
+      <h2>About you</h2>
+      <div class="q"><label for="name">Full name</label><input id="name" name="name" type="text" autocomplete="name" required></div>
+      <div class="q"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+      <div class="q"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel" required></div>
+      <div class="q"><label for="town">What town do you live in?</label><input id="town" name="town" type="text" required></div>
+      <div class="q"><label for="heard">How did you hear about this job?</label>
+        <select id="heard" name="heard" required>
+          <option value="">Choose one</option>
+          <option>Instagram / Facebook</option><option>Indeed</option>
+          <option>Friend or current employee</option><option>I'm a Strong Kitchen customer</option><option>Other</option>
+        </select></div>
+      <div class="q"><label for="start">When could you start?</label><input id="start" name="start" type="text" placeholder="e.g. right away, two weeks' notice" required></div>
+      <div class="err" id="err-2">Please fill in every field.</div>
+      <div class="row"><button class="btn ghost" type="button" data-back>Back</button><button class="btn" type="button" data-next>Continue</button></div>
+    </section>
+
+    <!-- ===== Step 3: work history ===== -->
+    <section class="card step hide" data-step="3">
+      <div class="step-n">Step 3 of 5</div>
+      <h2>Your work history</h2>
+      <p class="sub">List your most recent jobs. At least two need to be jobs you held for a year or longer.</p>
+      <div id="jobs"></div>
+      <div class="q"><span class="lbl">Have you worked in a kitchen before?</span>
+        <select name="kitchen" required>
+          <option value="">Choose one</option>
+          <option>No, never (that's fine)</option><option>A little</option><option>Yes, for a while</option>
+        </select></div>
+      <div class="q"><label for="file">Upload your resume</label>
+        <p class="hint">PDF, Word, or a clear photo of it. Up to 6 MB.</p>
+        <input id="file" name="file" type="file" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.heic,.heif,image/*,application/pdf" required></div>
+      <div class="err" id="err-3">Please fill in at least two jobs with dates, answer the kitchen question and add your resume.</div>
+      <div class="row"><button class="btn ghost" type="button" data-back>Back</button><button class="btn" type="button" data-next>Continue</button></div>
+    </section>
+
+    <!-- ===== Step 4: leading and training ===== -->
+    <section class="card step hide" data-step="4">
+      <div class="step-n">Step 4 of 5</div>
+      <h2>Leading and training</h2>
+      <p class="sub">Real examples beat polished ones. A few sentences each is plenty.</p>
+      <div class="q"><label>What is your leadership experience? Please give examples.</label><textarea name="leadership" required></textarea></div>
+      <div class="q"><label>Tell us about one person you trained or helped get better at their job.</label><textarea name="trained" required></textarea></div>
+      <div class="q"><label>Tell us about a time something went wrong on your shift. What did you do, and who did you tell?</label><textarea name="wentWrong" required></textarea></div>
+      <div class="q"><label>You're running the floor and two people are doing a task wrong in a way that'll slow the whole day. What do you do?</label><textarea name="floor" required></textarea></div>
+      <div class="err" id="err-4">Please answer all four.</div>
+      <div class="row"><button class="btn ghost" type="button" data-back>Back</button><button class="btn" type="button" data-next>Continue</button></div>
+    </section>
+
+    <!-- ===== Step 5: schedule and fit ===== -->
+    <section class="card step hide" data-step="5">
+      <div class="step-n">Step 5 of 5</div>
+      <h2>Schedule and fit</h2>
+      <div class="q"><label>This role is Wed/Thu/Fri/Sat, and the team depends on everyone showing up consistently, especially Saturday. Is there anything that would make that hard?</label><textarea name="attendance" required></textarea></div>
+      <div class="q"><label>Why does a four-day kitchen job appeal to you right now?</label><textarea name="why" required></textarea></div>
+      <div class="q"><label>Anything else you want us to know? (optional)</label><textarea name="extra"></textarea></div>
+      <div class="err" id="err-5">Please answer the first two.</div>
+      <div class="err" id="err-send"></div>
+      <div class="row"><button class="btn ghost" type="button" data-back>Back</button><button class="btn" type="submit" id="submit">Submit application</button></div>
+    </section>
+  </form>
+
+  <!-- ===== End screens ===== -->
+  <section class="card end hide" id="s-nofit">
+    <h2>Thanks for your interest</h2>
+    <p class="sub" id="nofit-why">This role needs every item on the list, so we can't take your application for this opening.</p>
+    <p class="sub">Keep an eye on our Instagram. We post new openings there.</p>
+  </section>
+  <section class="card end hide" id="s-done">
+    <h2>Application received</h2>
+    <p class="sub">Thanks for taking the time. We read every application ourselves and will reach out by phone or email if it looks like a fit.</p>
+  </section>
+
+</main>
+<footer>The Strong Kitchen · 109 Sanford St, Building 2, Hamden CT</footer>
+
+<script>
+// Paste the Apps Script web app URL (ends in /exec) here after deploying receiver.gs.
+var ENDPOINT = 'https://script.google.com/macros/s/AKfycbyGBvxoqz3RwtFg88ozcymP7GuWjZ2XVsmQ0q8QLmYTO9kQdBdSAUB1T0HvA4Wdpd_Q_w/exec';
+var MAX_MB = 6;
+
+var form = document.getElementById('app');
+var steps = [].slice.call(document.querySelectorAll('.step'));
+var cur = 1;
+
+// three job blocks; first two required
+var jobsEl = document.getElementById('jobs');
+for (var i = 1; i <= 3; i++) {
+  jobsEl.insertAdjacentHTML('beforeend',
+    '<div class="job" data-job="' + i + '"><h3>Job ' + i + (i === 3 ? ' (optional)' : '') + '</h3>' +
+    '<div class="q"><input type="text" name="j' + i + '_employer" placeholder="Employer"></div>' +
+    '<div class="q"><input type="text" name="j' + i + '_role" placeholder="Your role"></div>' +
+    '<div class="row"><div class="q"><span class="hint">Started</span><input type="month" name="j' + i + '_start"></div>' +
+    '<div class="q"><span class="hint">Ended</span><input type="month" name="j' + i + '_end"></div></div>' +
+    '<label class="check"><input type="checkbox" name="j' + i + '_current"> I still work here</label></div>');
+}
+
+function val(n) { var el = form.elements[n]; return el ? String(el.value || '').trim() : ''; }
+function radio(n) { var el = form.querySelector('input[name="' + n + '"]:checked'); return el ? el.value : ''; }
+function show(id) { document.getElementById(id).classList.remove('hide'); }
+function hide(id) { document.getElementById(id).classList.add('hide'); }
+function scrollUp() { window.scrollTo({ top: document.querySelector('main').offsetTop - 10, behavior: 'smooth' }); }
+
+function go(n) {
+  cur = n;
+  steps.forEach(function (s) { s.classList.toggle('hide', +s.dataset.step !== n); });
+  document.getElementById('bar').style.width = ((n - 1) / steps.length * 100) + '%';
+  scrollUp();
+}
+
+function monthsBetween(a, b) { // "YYYY-MM" strings, counted inclusively
+  var p = a.split('-'), q = b.split('-');
+  return (q[0] - p[0]) * 12 + (q[1] - p[1]) + 1;
+}
+function nowMonth() { var d = new Date(); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0'); }
+
+function job(i) {
+  var cur = form.elements['j' + i + '_current'].checked;
+  return { employer: val('j' + i + '_employer'), role: val('j' + i + '_role'),
+           start: val('j' + i + '_start'), end: cur ? 'present' : val('j' + i + '_end'), current: cur };
+}
+
+function requireFields(stepEl) {
+  var ok = true;
+  stepEl.querySelectorAll('[required]').forEach(function (el) {
+    var bad = el.type === 'file' ? !el.files.length : !String(el.value).trim();
+    if (el.type === 'email' && !bad) bad = !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(el.value.trim());
+    el.classList.toggle('invalid', bad);
+    if (bad) ok = false;
+  });
+  return ok;
+}
+
+function check(n) {
+  var stepEl = steps[n - 1];
+  var err = document.getElementById('err-' + n);
+  err.style.display = 'none';
+  if (n === 1) {
+    var keys = ['g_age', 'g_auth', 'g_transport', 'g_days', 'g_history'];
+    if (keys.some(function (k) { return !radio(k); })) { err.style.display = 'block'; return false; }
+    if (keys.some(function (k) { return radio(k) === 'no'; })) { noFit(); return false; }
+    return true;
+  }
+  var ok = requireFields(stepEl);
+  if (n === 3) {
+    var filled = 0, longJobs = 0;
+    [1, 2, 3].forEach(function (i) {
+      var j = job(i);
+      var complete = j.employer && j.role && j.start && j.end;
+      if (i < 3 || j.employer) {
+        ['employer', 'role', 'start'].forEach(function (f) {
+          form.elements['j' + i + '_' + f].classList.toggle('invalid', !j[f]);
+        });
+        form.elements['j' + i + '_end'].classList.toggle('invalid', !j.end);
+      }
+      if (complete) {
+        filled++;
+        if (monthsBetween(j.start, j.current ? nowMonth() : j.end) >= 12) longJobs++;
+      }
+    });
+    var f = form.elements.file.files[0];
+    if (f && f.size > MAX_MB * 1024 * 1024) {
+      err.textContent = 'That file is over ' + MAX_MB + ' MB. Try a PDF or a smaller photo.';
+      err.style.display = 'block'; return false;
+    }
+    if (filled < 2) ok = false;
+    if (ok && longJobs < 2) {
+      noFit('This role needs at least two jobs you held for a year or longer, and the dates you entered show fewer than that. If a date is off, go back and fix it.', true);
+      return false;
+    }
+  }
+  if (!ok) { err.style.display = 'block'; }
+  return ok;
+}
+
+function noFit(msg, canGoBack) {
+  if (msg) document.getElementById('nofit-why').textContent = msg;
+  form.classList.add('hide');
+  show('s-nofit');
+  var s = document.getElementById('s-nofit');
+  var old = s.querySelector('.btn'); if (old) old.remove();
+  if (canGoBack) {
+    s.insertAdjacentHTML('beforeend', '<button class="btn ghost" type="button">Go back and fix my dates</button>');
+    s.querySelector('.btn').onclick = function () { hide('s-nofit'); form.classList.remove('hide'); go(3); };
+  }
+  scrollUp();
+}
+
+document.querySelectorAll('[data-go="1"]').forEach(function (b) { b.onclick = function () { hide('s-intro'); form.classList.remove('hide'); go(1); }; });
+form.addEventListener('click', function (e) {
+  if (e.target.matches('[data-next]')) { if (check(cur)) go(cur + 1); }
+  if (e.target.matches('[data-back]')) go(cur - 1);
+});
+
+function readFile(f) {
+  return new Promise(function (res, rej) {
+    var r = new FileReader();
+    r.onload = function () { res(String(r.result).split(',')[1]); };
+    r.onerror = rej;
+    r.readAsDataURL(f);
+  });
+}
+
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+  if (!check(5)) return;
+  var btn = document.getElementById('submit'), errSend = document.getElementById('err-send');
+  errSend.style.display = 'none';
+  btn.disabled = true; btn.textContent = 'Sending...';
+  var f = form.elements.file.files[0];
+  readFile(f).then(function (b64) {
+    var payload = {
+      website: val('website'),
+      gate: { age: radio('g_age'), auth: radio('g_auth'), transport: radio('g_transport'), days: radio('g_days'), history: radio('g_history') },
+      name: val('name'), email: val('email'), phone: val('phone'), town: val('town'),
+      heard: val('heard'), start: val('start'), kitchen: val('kitchen'),
+      jobs: [job(1), job(2), job(3)],
+      file: { name: f.name, type: f.type, data: b64 },
+      answers: { leadership: val('leadership'), trained: val('trained'), wentWrong: val('wentWrong'), floor: val('floor'),
+                 attendance: val('attendance'), why: val('why'), extra: val('extra') }
+    };
+    return fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(payload) });
+  }).then(function (r) { return r.json(); }).then(function (res) {
+    if (!res.ok) throw new Error(res.error || 'failed');
+    form.classList.add('hide'); show('s-done'); scrollUp();
+  }).catch(function () {
+    errSend.textContent = 'Something went wrong sending your application. Please try again in a minute.';
+    errSend.style.display = 'block';
+    btn.disabled = false; btn.textContent = 'Submit application';
+  });
+});
+</script>
+</body>
+</html>
