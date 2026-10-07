@@ -380,7 +380,12 @@ form.addEventListener('submit', function (e) {
                  attendance: val('attendance'), why: val('why'), extra: val('extra') }
     };
     return fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(payload) });
-  }).then(function (r) { return r.json(); }).then(function (res) {
+  }).then(function (r) {
+    // Apps Script saves the application before it answers. Its reply sometimes comes back
+    // as a 404 even though the row and resume were saved, so only an explicit
+    // { ok: false } counts as a failure. A true network error still lands in catch.
+    return r.json().catch(function () { return { ok: true }; });
+  }).then(function (res) {
     if (!res.ok) throw new Error(res.error || 'failed');
     form.classList.add('hide'); show('s-done'); scrollUp();
   }).catch(function () {
