@@ -227,8 +227,8 @@
     <p class="sub">Keep an eye on our Instagram. We post new openings there.</p>
   </section>
   <section class="card end hide" id="s-done">
-    <h2>Application received</h2>
-    <p class="sub">Thanks for taking the time. We read every application ourselves and will reach out by phone or email if it looks like a fit.</p>
+    <h2>Thanks for applying!</h2>
+    <p class="sub">We got your application. We read every one ourselves, and if you're the right fit, we'll reach out by phone or email.</p>
   </section>
 
 </main>
@@ -387,7 +387,7 @@ form.addEventListener('submit', function (e) {
     return r.json().catch(function () { return { ok: true }; });
   }).then(function (res) {
     if (!res.ok) throw new Error(res.error || 'failed');
-    form.classList.add('hide'); show('s-done'); scrollUp();
+    form.classList.add('hide'); show('s-done'); document.querySelector('.hero-btn').classList.add('hide'); scrollUp();
   }).catch(function () {
     errSend.textContent = 'Something went wrong sending your application. Please try again in a minute.';
     errSend.style.display = 'block';

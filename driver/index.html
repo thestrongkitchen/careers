@@ -7,7 +7,7 @@
 <meta name="description" content="The Strong Kitchen is hiring a Delivery Driver in Hamden, CT. $22/hr to start, Sundays and Mondays 8 AM to 6 PM, company van.">
 <meta property="og:title" content="Now hiring: Delivery Driver - The Strong Kitchen">
 <meta property="og:description" content="$22/hr to start in Hamden, CT. Sundays and Mondays, 8 AM to 6 PM, delivering in New Haven and Hartford Counties.">
-<meta property="og:image" content="../hero.jpg">
+<meta property="og:image" content="hero.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -21,7 +21,7 @@
   body { background: var(--bg); color: var(--ink); font: 16px/1.55 "Plus Jakarta Sans", "Helvetica Neue", Arial, sans-serif; }
   .hero {
     position: relative; color: #fff; text-align: center; padding: 28px 16px 40px;
-    background: linear-gradient(180deg, rgba(46,58,24,.55), rgba(46,58,24,.92)), url(../hero.jpg) center 35%/cover;
+    background: linear-gradient(180deg, rgba(46,58,24,.55), rgba(46,58,24,.92)), url(hero.jpg) center 48%/cover;
   }
   .hero img.logo { width: 180px; max-width: 55%; }
   .pill { display: inline-block; margin-top: 26px; background: var(--green); color: #fff; font-weight: 800;
@@ -234,8 +234,8 @@
     <p class="sub">Keep an eye on our Instagram. We post new openings there.</p>
   </section>
   <section class="card end hide" id="s-done">
-    <h2>Application received</h2>
-    <p class="sub">Thanks for taking the time. We read every application ourselves and will reach out by phone or email if it looks like a fit.</p>
+    <h2>Thanks for applying!</h2>
+    <p class="sub">We got your application. We read every one ourselves, and if you're the right fit, we'll reach out by phone or email.</p>
   </section>
 
 </main>
@@ -395,7 +395,7 @@ form.addEventListener('submit', function (e) {
     return r.json().catch(function () { return { ok: true }; });
   }).then(function (res) {
     if (!res.ok) throw new Error(res.error || 'failed');
-    form.classList.add('hide'); show('s-done'); scrollUp();
+    form.classList.add('hide'); show('s-done'); document.querySelector('.hero-btn').classList.add('hide'); scrollUp();
   }).catch(function () {
     errSend.textContent = 'Something went wrong sending your application. Please try again in a minute.';
     errSend.style.display = 'block';
